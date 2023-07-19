@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ENTER/RETURN Key to &lt;br&gt; Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content {
+            opacity: 0;
+            max-width: 600px;
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: box-shadow 0.3s ease;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .content:hover {
+            box-shadow: 0 0 20px rgba(50, 50, 50, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-family: 'Poppins', sans-serif;
+            transition: text-shadow 0.3s ease;
+        }
+
+        h1:hover {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+        }
+
+        .input-container {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .input-textarea {
+            border: none;
+            outline: none;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            height: 120px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            resize: vertical;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .button {
+            background-color: #4285f4;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 0 10px rgba(51, 103, 214, 0.1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3367d6;
+            box-shadow: 0 0 10px rgba(51, 103, 214, 1);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+        }
+
+        .output-textarea {
+            border: none;
+            outline: none;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            height: 120px;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            resize: vertical;
+            font-family: 'JetBrains Mono', monospace;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>ENTER/RETURN Key to &lt;br&gt; Converter</h1>
+            <div class="input-container">
+                <textarea id="inputText" class="input-textarea" placeholder="Enter text here"></textarea>
+            </div>
+            <div class="button-container">
+                <button onclick="document.getElementById('outputText').value = (document.getElementById('inputText').value).replace(/\r\n|\r|\n/g, '<br>');" class="button">Convert ENTER/RETURN Chars to &lt;br&gt;<button>
+            </div>
+            <div class="output-container">
+                <textarea id="outputText" class="output-textarea" placeholder="Convert first!" readonly></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
